@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <link rel="stylesheet" href="../styles/main.css">
+    <title>OmniCalulator - Frete</title>
+  </head>
+  <body>
+    <main class="calculator">
+      <div class="calculator__controls">
+        <h1 class="calculator__title">
+          Calculadora de Frete
+        </h1>
+
+        <form
+          data-shipping-calculator="form"
+          class="calculator__form hidden">
+
+          <div class="input">
+            <label for="pieces-count" class="input__label">
+              Número de peças
+            </label>
+            <div class="input__field-container">
+              <div class="input__icon">
+                <i class="ph-bold ph-wrench"></i>
+              </div>
+              <input
+                data-shipping-calculator="pieces-count"
+                id="pieces-count"
+                type="number"
+                name="pieces-count"
+                autofocus
+                required
+                class="input__field">
+            </div>
+          </div>
+
+          <div class="radio-group">
+            <span for="pieces-count" class="radio-group__label">
+              Adicionar rastreamento de entrega?
+            </span>
+            <div class="radio-group__group">
+              <label for="tracking-enabled" class="radio-group__radio">
+                <input
+                  data-shipping-calculator="tracking"
+                  id="tracking-enabled"
+                  type="radio"
+                  name="tracking"
+                  value="true"
+                  required
+                  checked
+                  class="radio-group__field">
+                <span class="radio-group__indicator">
+                  <span class="radio-group__indicator-circle"></span>
+                </span>
+                <span
+                  class="radio-group__field-label">
+                  Sim
+                </span>
+              </label>
+              <label
+                for="tracking-disabled"
+                class="radio-group__radio">
+                <input
+                  data-shipping-calculator="tracking"
+                  id="tracking-disabled"
+                  type="radio"
+                  name="tracking"
+                  value="false"
+                  required
+                  class="radio-group__field">
+                <span class="radio-group__indicator">
+                  <span class="radio-group__indicator-circle"></span>
+                </span>
+                <span
+                  class="radio-group__field-label">
+                  Não
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="checkbox-group">
+            <span class="checkbox-group__label">Região de entrega</span>
+            <label
+              for="southeast"
+              class="checkbox-group__checkbox">
+              <input
+                data-shipping-calculator="region"
+                id="southeast"
+                type="checkbox"
+                value="southeast"
+                checked
+                class="checkbox-group__field" />
+              <span class="checkbox-group__indicator">
+                <span class="checkbox-group__indicator-circle"></span>
+              </span>
+              <span
+                class="checkbox-group__checkbox-label">
+                Sudeste
+              </span>
+            </label>
+            <label
+              for="west-center"
+              class="checkbox-group__checkbox">
+              <input
+                data-shipping-calculator="region"
+                id="west-center"
+                type="checkbox"
+                value="west-center"
+                class="checkbox-group__field" />
+              <span class="checkbox-group__indicator">
+                <span class="checkbox-group__indicator-circle"></span>
+              </span>
+              <span
+                class="checkbox-group__checkbox-label">
+                Centro Oeste
+              </span>
+            </label>
+            <label
+              for="south"
+              class="checkbox-group__checkbox">
+              <input
+                data-shipping-calculator="region"
+                id="south"
+                type="checkbox"
+                value="south"
+                class="checkbox-group__field" />
+              <span class="checkbox-group__indicator">
+                <span class="checkbox-group__indicator-circle"></span>
+              </span>
+              <span
+                class="checkbox-group__checkbox-label">
+                Sul
+              </span>
+            </label>
+          </div>
+
+          <div class="input">
+            <label for="distance" class="input__label">
+              Distância (Km)
+            </label>
+            <div class="input__field-container">
+              <div class="input__icon">
+                <i class="ph-bold ph-truck"></i>
+              </div>
+              <input
+                data-shipping-calculator="distance"
+                id="distance"
+                type="number"
+                name="distance"
+                autofocus
+                required
+                class="input__field">
+            </div>
+          </div>
+
+          <div
+            data-shipping-calculator="buttons-group"
+            class="calculator__buttons-group">
+            <button
+              data-shipping-calculator="calculate-button"
+              type="bmit"
+              class="button">
+              <i class="ph-bold ph-calculator button__icon"></i>
+              Calcular
+            </button>
+
+            <button
+              data-shipping-calculator="restart-button"
+              type="button"
+              class="button">
+              <i class="ph-bold ph-arrow-counter-clockwise button__icon"></i>
+              Parar
+            </button>
+          </div>
+        </form>
+
+        <div class="calculator__button-container">
+          <button
+            data-shipping-calculator="start-button"
+            type="button"
+            class="button">
+            <i class="ph-bold ph-play button__icon"></i>
+            Iniciar
+          </button>
+        </div>
+
+      </div>
+      <div class="calculator__result">
+
+        <div
+          data-shipping-calculator="placeholder"
+          class="calculator__result-placeholder">
+          <img
+            src="../assets/calculator.svg"
+            width="192"
+            height="192"
+            alt="calculator">
+          <h2
+            class="calculator__result-title">
+            Resultados serão mostrados aqui
+          </h2>
+          <p
+            class="calculator__result-message">
+            Complete o formulário e clique em "calcular" para ver o resultado.
+          </p>
+        </div>
+
+        <div
+          data-shipping-calculator="display"
+          class="calculator__result-display hidden">
+          <h2 class="calculator__result-title">
+            Resultados
+          </h2>
+
+          <span
+            data-shipping-calculator="results"
+            class="calculator__result-display">
+          </span>
+        </div>
+
+      </div>
+    </main>
+
+    <nav class="navigation">
+      <ul class="navigation__links">
+        <li>
+          <a href="bmi-calculator.html" class="navigation__link">
+            Calculadora de IMC
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <script src="../scripts/document.js"></script>
+    <script src="../scripts/form.js"></script>
+    <script src="../scripts/shipping-calculator.js"></script>
+  </body>
+</html>

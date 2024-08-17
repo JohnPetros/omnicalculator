@@ -198,7 +198,7 @@
 .display {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2rem;
   padding: 2.4rem;
   border-radius: 0.8rem;
   border-top: 4px solid hsl(61, 70%, 52%);
@@ -319,6 +319,7 @@ body {
   padding: 2.4rem;
   background-color: hsl(202, 55%, 16%);
   border-bottom-left-radius: 8rem;
+  overflow-y: auto;
 }
 .calculator__result-placeholder {
   display: flex;
@@ -328,16 +329,10 @@ body {
   gap: 1.2rem;
   height: 100%;
 }
-.calculator__result-placeholder--hidden {
-  display: none;
-}
 .calculator__result-display {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-}
-.calculator__result-display--hidden {
-  display: none;
 }
 .calculator__result-title {
   color: hsl(202, 86%, 94%);

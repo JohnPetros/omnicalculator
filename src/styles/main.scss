@@ -102,6 +102,8 @@ body {
     padding: 2.4rem;
     background-color: $slate_900;
     border-bottom-left-radius: 8rem;
+
+    overflow-y: auto;
   }
 
   &__result-placeholder {
@@ -114,18 +116,10 @@ body {
     height: 100%;
   }
 
-  &__result-placeholder--hidden {
-    display: none;
-  }
-
   &__result-display {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-  }
-
-  &__result-display--hidden {
-    display: none;
   }
 
   &__result-title {
