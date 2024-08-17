@@ -1,0 +1,26 @@
+@mixin indicator($is_visible) {
+  display: grid;
+  place-content: center;
+
+  width: 8px;
+  height: 8px;
+  padding: 8px;
+  border: 1px solid $slate_500;
+  background-color: transparent;
+  border-radius: 50%;
+
+  @if $is_visible {
+    border-color: $lime;
+  }
+}
+
+@mixin indicator-circle($is_visible) {
+  @if $is_visible {
+    display: block;
+
+    width: 10px;
+    height: 10px;
+    background-color: $lime;
+    border-radius: 50%;
+  }
+}
