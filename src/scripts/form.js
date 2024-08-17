@@ -32,6 +32,23 @@ class Form {
     return fields
   }
 
+  getCheckboxGroupValues(groupName) {
+    const checkedCheckboxes = []
+
+    const checkboxes = this.form.querySelectorAll(`[data-${this.#calculator}='${groupName}']`)
+    for (const checkbox of checkboxes) {
+      if (checkbox.checked) checkedCheckboxes.push(checkbox.value)
+    }
+    return checkedCheckboxes
+  }
+
+  getRadioGroupValue(groupName) {
+    const radios = this.form.querySelectorAll(`[data-${this.#calculator}='${groupName}']`)
+    for (const radio of radios) {
+      if (radio.checked) return radio.value
+    }
+  }
+
   showForm() {
     this.form.classList.remove('hidden')
   }

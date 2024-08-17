@@ -1,5 +1,5 @@
 class AverageCalculator {
-  #NUMBER_OF_INPUT_GROUPS = 3
+  NUMBER_OF_INPUT_GROUPS = 3
 
   constructor() {
     this.form = new Form("average-calculator")
@@ -65,7 +65,7 @@ class AverageCalculator {
   renderInputGroups() {
     const inputGroups = this.document.select("inputs-groups")
 
-    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
+    for (let number = 1; number <= this.NUMBER_OF_INPUT_GROUPS; number++) {
       const inputGroup = `
       <div class="calculator__input-group">
          <div class="input">
@@ -114,7 +114,7 @@ class AverageCalculator {
     let totalWeight = 0
     let hasErrors = false
 
-    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
+    for (let number = 1; number <= this.NUMBER_OF_INPUT_GROUPS; number++) {
       const gradeField = this.form.getField(`grade-${number}`)
       const weightField = this.form.getField(`weight-${number}`)
       const grade = parseInt(gradeField.value)
