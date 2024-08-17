@@ -1,0 +1,102 @@
+@import "./components/colors";
+@import "./components/input";
+@import "./components/button";
+@import "./components/display";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+  background-color: $slate_100;
+
+  display: grid;
+  place-content: center;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+
+  width: 840px;
+
+  background-color: $white;
+  border-radius: 1.2rem;
+  overflow: hidden;
+
+  &__controls {
+    background-color: $white;
+    padding: 2.4rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 5.6rem;
+
+    margin-top: 2.4rem;
+  }
+
+  &__result {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2.4rem;
+    background-color: $slate_900;
+    border-bottom-left-radius: 8rem;
+  }
+
+  &__result-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    height: 100%;
+  }
+
+  &__result-placeholder--hidden {
+    display: none;
+  }
+
+  &__result-display {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &__result-display--hidden {
+    display: none;
+  }
+
+  &__result-title {
+    color: $slate_100;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__result-message {
+    color: $slate_500;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  &__title {
+    color: $slate_900;
+  }
+}
