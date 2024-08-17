@@ -1,9 +1,8 @@
 class BmiCalculator {
   constructor() {
-    const form = document.querySelector("[data-bmi-calculator='form']")
-    if (!form) return
-
-    form.addEventListener('submit', (event) => this.handleSubmit(event))
+    const form = new Form("[data-bmi-calculator='form']")
+    this.document = new Document("average-calculator")
+    form.onSubmit = this.handleFormSubmit()
   }
 
   calculate(weight, height) {
@@ -22,19 +21,15 @@ class BmiCalculator {
   }
 
   hidePlaceholder() {
-    const displayElement = document.querySelector("[data-bmi-calculator^='placeholder']")
+    const displayElement = this.document.select("placeholder")
     if (!displayElement) return
-
-    const classForHiding = displayElement.dataset.bmiCalculator.split(":")[1]
-    if (displayElement) displayElement.classList.add(classForHiding)
+    displayElement.classList.add('hidden')
   }
 
   showDisplay() {
-    const displayElement = document.querySelector("[data-bmi-calculator^='display']")
+    const displayElement = this.document.select("display")
     if (!displayElement) return
-
-    const classForHiding = displayElement.dataset.bmiCalculator.split(":")[1]
-    if (displayElement) displayElement.classList.remove(classForHiding)
+    if (displayElement) displayElement.classList.remove('hidden')
   }
 
   renderResult(bmi, username) {
@@ -43,9 +38,9 @@ class BmiCalculator {
     this.hidePlaceholder()
     this.showDisplay()
 
-    const messageElement = document.querySelector("[data-bmi-calculator='message']")
-    const statusElement = document.querySelector("[data-bmi-calculator='status']")
-    const bmiElement = document.querySelector("[data-bmi-calculator='bmi']")
+    const messageElement = this.document.select("message")
+    const statusElement = this.document.select("status")
+    const bmiElement = this.document.select("bmi")
 
     messageElement.textContent =
       `${username}, você possui um índice de massa corporal igual a ${bmi}, sendo classificado como:`
@@ -53,7 +48,7 @@ class BmiCalculator {
     bmiElement.textContent = `${bmi} KG/M²`
   }
 
-  handleSubmit(event) {
+  handleFormSubmit(event) {
     event.preventDefault()
     const form = event.currentTarget
 

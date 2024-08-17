@@ -1,10 +1,9 @@
 class AgeGroupCalculator {
   constructor() {
     this.form = new Form("age-group-calculator")
-    const startButton = document.querySelector("[data-age-group-calculator='start-button']")
-    const retartButton = document.querySelector("[data-age-group-calculator='restart-button']")
-    const calculateButton = document.querySelector("[data-age-group-calculator='calculate-button']")
-    if (!startButton || !calculateButton || !calculateButton) return
+    this.document = new Document("age-group-calculator")
+    const startButton = this.document.select("start-button")
+    const retartButton = this.document.select("restart-button")
 
     startButton.addEventListener(
       'click', (event) => this.handleStartButtonClick(event.currentTarget)
@@ -32,13 +31,13 @@ class AgeGroupCalculator {
   }
 
   hidePlaceholder() {
-    const displayElement = document.querySelector("[data-age-group-calculator='placeholder']")
+    const displayElement = this.document.select("placeholder")
     if (!displayElement) return
     displayElement.classList.add('hidden')
   }
 
   showDisplay() {
-    const displayElement = document.querySelector("[data-age-group-calculator='display']")
+    const displayElement = this.document.select("display")
     if (!displayElement) return
     if (displayElement) displayElement.classList.remove('hidden')
   }
@@ -49,8 +48,8 @@ class AgeGroupCalculator {
     this.hidePlaceholder()
     this.showDisplay()
 
-    const messageElement = document.querySelector("[data-age-group-calculator='message']")
-    const groupElement = document.querySelector("[data-age-group-calculator='group']")
+    const messageElement = this.document.select("message")
+    const groupElement = this.document.select("group")
 
     messageElement.textContent =
       `${username}, você tem ${age} anos e é classificado como:`
