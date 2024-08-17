@@ -1,6 +1,9 @@
+@import "./mixins/indicator";
 @import "./components/colors";
 @import "./components/input";
 @import "./components/button";
+@import "./components/radio-group";
+@import "./components/checkbox-group";
 @import "./components/display";
 @import "./components/navigation";
 @import "./components/utils";
@@ -31,13 +34,13 @@ body {
 .calculator {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.2rem;
 
   width: 840px;
-  height: 420px;
+  height: 440px;
 
   background-color: $white;
   border-radius: 1.2rem;
+
   overflow: hidden;
 
   &__controls {
@@ -45,6 +48,8 @@ body {
     flex-direction: column;
     background-color: $white;
     padding: 2.4rem;
+
+    overflow: auto;
   }
 
   &__button-container {
@@ -58,7 +63,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 2.4rem;
 
     margin-top: 2rem;
   }
@@ -75,13 +80,19 @@ body {
     display: none;
   }
 
-  &__inputs-group {
+  &__inputs-groups {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    height: 240px;
 
-    height: 192px;
     overflow-y: auto;
+  }
+
+  &__input-group {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
   }
 
   &__result {

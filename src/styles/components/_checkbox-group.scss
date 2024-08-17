@@ -1,0 +1,49 @@
+.checkbox-group {
+  &__label {
+    color: $slate_500;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    margin-top: 0.8rem;
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    border: 1px solid $slate_500;
+    background-color: transparent;
+
+    cursor: pointer;
+  }
+
+  &__field {
+    display: none;
+  }
+
+  &__checkbox:has(input:checked) {
+    border-color: $lime;
+    background-color: lighten($lime, 40%);
+  }
+
+  &__indicator {
+    @include indicator(false);
+  }
+
+  &__checkbox:has(input:checked) &__indicator {
+    @include indicator(true);
+  }
+
+  &__checkbox:has(input:checked) &__indicator-circle {
+    @include indicator-circle(true);
+  }
+
+  &__checkbox-label {
+    color: $slate_900;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+}
