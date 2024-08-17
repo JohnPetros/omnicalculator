@@ -1,0 +1,16 @@
+.navigation {
+  margin-top: 2rem;
+
+  &__links {
+    list-style: none;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__link {
+    color: $slate_500;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+}
