@@ -2,7 +2,6 @@
   border-radius: 1.2rem;
   background-color: transparent;
   width: 100%;
-  height: 4rem;
 }
 .input__label {
   color: hsl(200, 26%, 54%);
@@ -10,15 +9,15 @@
   font-weight: 600;
 }
 .input__field-container {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
+  display: flex;
   gap: 1.2rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   border-radius: 0.4rem;
   border: 1px solid hsl(203, 41%, 72%);
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: 4rem;
+  padding-right: 1.2rem;
 }
 .input__field-container:focus-within {
   border-color: hsl(61, 70%, 52%);
@@ -26,11 +25,12 @@
 .input__icon {
   display: grid;
   place-content: center;
-  width: 4rem;
+  padding: 0 1.2rem;
   height: 100%;
   background-color: hsl(202, 86%, 94%);
   color: hsl(202, 55%, 16%);
   font-size: 2rem;
+  font-weight: 700;
 }
 .input__icon:has(+ input:focus) {
   background-color: hsl(61, 70%, 52%);
@@ -40,6 +40,19 @@
   color: hsl(202, 55%, 16%);
   font-size: 1.6rem;
   font-weight: 700;
+}
+.input__error {
+  margin: 0.4rem;
+  color: hsl(4, 69%, 50%);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.input:has(p) .input__icon {
+  background-color: hsl(4, 69%, 50%);
+  color: hsl(0, 0%, 100%);
+}
+.input:has(p) .input__field-container {
+  border-color: hsl(4, 69%, 50%);
 }
 
 .button {
@@ -52,7 +65,8 @@
   padding: 1.2rem 0;
   border: 1px solid transparent;
   border-radius: 1.2rem;
-  width: 24rem;
+  width: 100%;
+  max-width: 12rem;
   font-size: 1.4rem;
   font-weight: 700;
   color: hsl(202, 55%, 16%);
@@ -68,6 +82,117 @@
 }
 .button__icon {
   font-size: 1.8rem;
+}
+
+.radio-group__label {
+  color: hsl(200, 26%, 54%);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.radio-group__group {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.radio-group__radio {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+.radio-group__indicator {
+  display: grid;
+  place-content: center;
+  width: 8px;
+  height: 8px;
+  padding: 8px;
+  border: 1px solid hsl(200, 26%, 54%);
+  background-color: transparent;
+  border-radius: 50%;
+}
+.radio-group__radio:has(input:checked) .radio-group__indicator {
+  display: grid;
+  place-content: center;
+  width: 8px;
+  height: 8px;
+  padding: 8px;
+  border: 1px solid hsl(200, 26%, 54%);
+  background-color: transparent;
+  border-radius: 50%;
+  border-color: hsl(61, 70%, 52%);
+}
+.radio-group__radio:has(input:checked) .radio-group__indicator-circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50%;
+}
+.radio-group__field {
+  display: none;
+}
+.radio-group__field-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.checkbox-group__label {
+  color: hsl(200, 26%, 54%);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.checkbox-group__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(200, 26%, 54%);
+  background-color: transparent;
+  cursor: pointer;
+}
+.checkbox-group__field {
+  display: none;
+}
+.checkbox-group__checkbox:has(input:checked) {
+  border-color: hsl(61, 70%, 52%);
+  background-color: #f8f9dc;
+}
+.checkbox-group__indicator {
+  display: grid;
+  place-content: center;
+  width: 8px;
+  height: 8px;
+  padding: 8px;
+  border: 1px solid hsl(200, 26%, 54%);
+  background-color: transparent;
+  border-radius: 50%;
+}
+.checkbox-group__checkbox:has(input:checked) .checkbox-group__indicator {
+  display: grid;
+  place-content: center;
+  width: 8px;
+  height: 8px;
+  padding: 8px;
+  border: 1px solid hsl(200, 26%, 54%);
+  background-color: transparent;
+  border-radius: 50%;
+  border-color: hsl(61, 70%, 52%);
+}
+.checkbox-group__checkbox:has(input:checked) .checkbox-group__indicator-circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50%;
+}
+.checkbox-group__checkbox-label {
+  color: hsl(202, 55%, 16%);
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .display {
@@ -98,6 +223,24 @@
   border-radius: 0.8rem;
 }
 
+.navigation {
+  margin-top: 2rem;
+}
+.navigation__links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+.navigation__link {
+  color: hsl(200, 26%, 54%);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -123,21 +266,52 @@ body {
 .calculator {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.2rem;
   width: 840px;
+  height: 440px;
   background-color: hsl(0, 0%, 100%);
   border-radius: 1.2rem;
   overflow: hidden;
 }
 .calculator__controls {
-  background-color: hsl(0, 0%, 100%);
-  padding: 2.4rem;
-}
-.calculator__form {
   display: flex;
   flex-direction: column;
-  gap: 5.6rem;
-  margin-top: 2.4rem;
+  background-color: hsl(0, 0%, 100%);
+  padding: 2.4rem;
+  overflow: auto;
+}
+.calculator__button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.calculator__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 2rem;
+}
+.calculator__buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: auto;
+}
+.calculator__buttons-group--hidden {
+  display: none;
+}
+.calculator__inputs-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: 240px;
+  overflow-y: auto;
+}
+.calculator__input-group {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 .calculator__result {
   display: flex;
