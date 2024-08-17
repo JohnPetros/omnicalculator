@@ -1,0 +1,55 @@
+.input {
+  border-radius: 1.2rem;
+  background-color: transparent;
+
+  width: 100%;
+  height: 4rem;
+
+  &__label {
+    color: $slate_500;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  &__field-container {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 1.2rem;
+
+    margin-top: 1.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid $slate_300;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    &:focus-within {
+      border-color: $lime;
+    }
+  }
+
+  &__icon {
+    display: grid;
+    place-content: center;
+
+    width: 4rem;
+    height: 100%;
+
+    background-color: $slate_100;
+    color: $slate_900;
+    font-size: 2rem;
+
+    &:has(+ input:focus) {
+      background-color: $lime;
+    }
+  }
+
+  &__field {
+    width: 95%;
+
+    color: $slate_900;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+}
