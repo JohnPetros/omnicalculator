@@ -1,8 +1,8 @@
 class BmiCalculator {
   constructor() {
-    const form = new Form("[data-bmi-calculator='form']")
-    this.document = new Document("average-calculator")
-    form.onSubmit = this.handleFormSubmit()
+    this.form = new Form("bmi-calculator")
+    this.document = new Document("bmi-calculator")
+    this.form.onSubmit = () => this.handleFormSubmit()
   }
 
   calculate(weight, height) {
@@ -48,23 +48,20 @@ class BmiCalculator {
     bmiElement.textContent = `${bmi} KG/M²`
   }
 
-  handleFormSubmit(event) {
-    event.preventDefault()
-    const form = event.currentTarget
+  handleFormSubmit() {
+    const usernameField = this.form.getField("username")
+    const weightField = this.form.getField("weight")
+    const heightField = this.form.getField("height")
+    if (!weightField.value || !heightField.value) return
 
-    const usernameInput = form.querySelector("[data-bmi-calculator='username']")
-    const weightInput = form.querySelector("[data-bmi-calculator='weight']")
-    const heightInput = form.querySelector("[data-bmi-calculator='height']")
-
-    if (!usernameInput || !weightInput || !heightInput) return
-
-    const username = usernameInput.value
-    const weight = parseFloat(weightInput.value)
-    const height = parseFloat(heightInput.value)
+    const username = usernameField.value
+    const weight = parseFloat(weightField.value)
+    const height = parseFloat(heightField.value)
 
     const bmi = this.calculate(weight, height)
-
     this.renderResult(bmi, username)
+    this.form.clear()
+    this.form.focusField("height")
   }
 }
 

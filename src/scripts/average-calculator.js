@@ -1,5 +1,5 @@
 class AverageCalculator {
-  NUMBER_OF_INPUT_GROUPS = 3
+  #NUMBER_OF_INPUT_GROUPS = 3
 
   constructor() {
     this.form = new Form("average-calculator")
@@ -65,21 +65,20 @@ class AverageCalculator {
   renderInputGroups() {
     const inputGroups = this.document.select("inputs-groups")
 
-    for (let number = 1; number <= this.NUMBER_OF_INPUT_GROUPS; number++) {
+    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
       const inputGroup = `
       <div class="calculator__input-group">
          <div class="input">
            <label for="grade-${number}" class="input__label">Nota ${number}</label>
            <div class="input__field-container">
              <div class="input__icon">
-               <i class="ph-bold ph-user"></i>
+               <i class="ph-bold ph-star-four"></i>
              </div>
              <input
                data-average-calculator="grade-${number}"
                id="grade-${number}"
                type="number"
                name="grade-${number}"
-               value="5"
                autofocus
                required
                class="input__field">
@@ -90,15 +89,13 @@ class AverageCalculator {
            <label for="weight-2" class="input__label">Peso ${number}</label>
            <div class="input__field-container">
              <div class="input__icon">
-               <i class="ph-bold ph-user"></i>
+               <i class="ph-bold ph-barbell"></i>
              </div>
              <input
                data-average-calculator="weight-${number}"
                id="weight-${number}"
                type="number"
                name="weight-${number}"
-               value="5"
-               autofocus
                required
                class="input__field">
            </div>
@@ -114,7 +111,7 @@ class AverageCalculator {
     let totalWeight = 0
     let hasErrors = false
 
-    for (let number = 1; number <= this.NUMBER_OF_INPUT_GROUPS; number++) {
+    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
       const gradeField = this.form.getField(`grade-${number}`)
       const weightField = this.form.getField(`weight-${number}`)
       const grade = parseInt(gradeField.value)
@@ -125,8 +122,8 @@ class AverageCalculator {
         hasErrors = true
       }
 
-      if (weight < 0 || weight > 10) {
-        this.form.showInputError(weightField, 'Peso não está entre 0 e 10')
+      if (weight < 1 || weight > 10) {
+        this.form.showInputError(weightField, 'Peso não está entre 1 e 10')
         hasErrors = true
       }
 
@@ -137,6 +134,8 @@ class AverageCalculator {
     if (hasErrors) return
     const average = this.calculate(gradesAndWeights, totalWeight)
     this.renderResult(average)
+    this.form.clear()
+    this.form.focusField("grade-1")
   }
 
   handleRestartButtonClick() {

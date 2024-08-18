@@ -35,29 +35,6 @@ class ShippingCalculator {
     this.form.onSubmit = () => this.handleFormSubmit()
   }
 
-  getGroup(age) {
-    const ageRanges = [
-      { start: 0, end: 14, group: 'criança' },
-      { start: 15, end: 29, group: 'jovem' },
-      { start: 30, end: 60, group: 'adulto' },
-    ]
-
-    for (const range of ageRanges) {
-      if (age >= range.start && age <= range.end) {
-        return range.group
-      }
-    }
-
-  }
-
-  formatPrice(price) {
-    const formatter = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    })
-    return formatter.format(price)
-  }
-
   hidePlaceholder() {
     const displayElement = this.document.select("placeholder")
     if (!displayElement) return
@@ -77,19 +54,19 @@ class ShippingCalculator {
 
   renderResult(piecesTotal, fuelTotal, hasTracking, region) {
     const resultsElement = this.document.select("results")
-
+    const currencyFormatter = new CurrenyFormatter()
     this.hidePlaceholder()
     this.showDisplay()
 
     const total = piecesTotal + fuelTotal + (hasTracking ? this.TRACKING_PRICE : 0)
-    const formattedTotal = this.formatPrice(total)
-    const formattedFuelTotal = this.formatPrice(fuelTotal)
+    const formattedTotal = currencyFormatter.format(total)
+    const formattedFuelTotal = currencyFormatter.format(fuelTotal)
 
     let message =
       `O valor total do frete é de ${formattedTotal}, incluindo ${formattedFuelTotal} para combustível`
 
     if (hasTracking) {
-      const formattedTrackingPrice = this.formatPrice(this.TRACKING_PRICE)
+      const formattedTrackingPrice = currencyFormatter.format(this.TRACKING_PRICE)
       message += ` e ${formattedTrackingPrice} para o rastreamento`
     }
 
@@ -138,8 +115,8 @@ class ShippingCalculator {
 
     if (piecesCount > 1000) {
       const exceed = piecesCount - 1000
-      const discount = price * this.REGIONS[region].discount
-      return (price * piecesCount) + (exceed * discount)
+      const discount = price * (1 - this.REGIONS[region].discount)
+      return (price * (piecesCount - exceed)) + (exceed * discount)
     }
 
     return price * piecesCount
