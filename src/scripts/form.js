@@ -12,6 +12,10 @@ class Form {
     this.form.addEventListener("submit", (event) => this.handleFormSubmit(event))
   }
 
+  clear() {
+    this.form.reset()
+  }
+
   clearField(fieldName) {
     const field = this.form.querySelector(`[data-${this.#calculator}='${fieldName}']`)
     if (field) field.value = ""
@@ -64,7 +68,6 @@ class Form {
     const errors = this.form.querySelectorAll('.input__error')
     for (const error of errors) error.remove()
   }
-
 
   handleFormSubmit(event) {
     event.preventDefault()

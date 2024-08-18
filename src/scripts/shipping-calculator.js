@@ -158,7 +158,7 @@ class ShippingCalculator {
     }
 
     const distanceField = this.form.getField("distance")
-    const distance = parseInt(distanceField.value)
+    const distance = parseFloat(distanceField.value)
 
     if (distance <= 0) {
       this.form.showInputError(
