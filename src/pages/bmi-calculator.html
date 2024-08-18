@@ -35,7 +35,6 @@
                 data-bmi-calculator="username"
                 id="username"
                 type="text"
-                value="Laura Gabriel"
                 autofocus
                 required
                 class="input__field">
@@ -52,7 +51,6 @@
                 data-bmi-calculator="height"
                 type="number"
                 required
-                value="180"
                 class="input__field">
             </div>
           </div>
@@ -67,7 +65,6 @@
                 data-bmi-calculator="weight"
                 type="number"
                 required
-                value="80"
                 class="input__field">
             </div>
           </div>
@@ -82,7 +79,7 @@
       <div class="calculator__result">
 
         <div
-          data-bmi-calculator="placeholder:calculator__result-placeholder--hidden"
+          data-bmi-calculator="placeholder"
           class="calculator__result-placeholder">
           <img
             src="../assets/calculator.svg"
@@ -100,8 +97,8 @@
         </div>
 
         <div
-          data-bmi-calculator="display:calculator__result-display--hidden"
-          class="calculator__result-display calculator__result-display--hidden">
+          data-bmi-calculator="display"
+          class="calculator__result-display hidden">
           <h2 class="calculator__result-title">
             Resultado
           </h2>
@@ -134,7 +131,33 @@
       </div>
     </main>
 
+    <nav class="navigation">
+      <ul class="navigation__links">
+        <li>
+          <a href="age-group-calculator.html" class="navigation__link">
+            Calculadora de Faixa Etária
+          </a>
+        </li>
+        <li>
+          <a href="average-calculator.html" class="navigation__link">
+            Calculadora de Média Escolar
+          </a>
+        </li>
+        <li>
+          <a href="shipping-calculator.html" class="navigation__link">
+            Calculadora de Frete
+          </a>
+        </li>
+        <li>
+          <a href="payroll-calculator.html" class="navigation__link">
+            Calculadora de Folha de Pagamento
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <script src="../scripts/form.js"></script>
+    <script src="../scripts/document.js"></script>
     <script src="../scripts/bmi-calculator.js"></script>
   </body>
 </html>
