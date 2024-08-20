@@ -1,17 +1,21 @@
 class AverageCalculator {
-  #NUMBER_OF_INPUT_GROUPS = 3
+  numberOfInputGroups = 3
 
   constructor() {
     this.form = new Form("average-calculator")
     this.document = new Document("average-calculator")
     const startButton = this.document.select("start-button")
     const retartButton = this.document.select("restart-button")
+    const addInputGroupButton = this.document.select("add-input-group-button")
 
     startButton.addEventListener(
       'click', (event) => this.handleStartButtonClick(event.currentTarget)
     )
     retartButton.addEventListener(
       'click', () => this.handleRestartButtonClick()
+    )
+    addInputGroupButton.addEventListener(
+      'click', () => this.handleAddInputGroupButtonClick()
     )
     this.form.onSubmit = () => this.handleFormSubmit()
   }
@@ -62,47 +66,51 @@ class AverageCalculator {
     averageElement.textContent = average.toFixed(2)
   }
 
-  renderInputGroups() {
+  appendInputGroup(number) {
     const inputGroups = this.document.select("inputs-groups")
 
-    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
-      const inputGroup = `
-      <div class="calculator__input-group">
-         <div class="input">
-           <label for="grade-${number}" class="input__label">Nota ${number}</label>
-           <div class="input__field-container">
-             <div class="input__icon">
-               <i class="ph-bold ph-star-four"></i>
-             </div>
-             <input
-               data-average-calculator="grade-${number}"
-               id="grade-${number}"
-               type="number"
-               name="grade-${number}"
-               autofocus
-               required
-               class="input__field">
+    const inputGroup = `
+    <div class="calculator__input-group">
+       <div class="input">
+         <label for="grade-${number}" class="input__label">Nota ${number}</label>
+         <div class="input__field-container">
+           <div class="input__icon">
+             <i class="ph-bold ph-exam"></i>
            </div>
+           <input
+             data-average-calculator="grade-${number}"
+             id="grade-${number}"
+             type="number"
+             name="grade-${number}"
+             autofocus
+             required
+             class="input__field">
          </div>
- 
-         <div class="input">
-           <label for="weight-2" class="input__label">Peso ${number}</label>
-           <div class="input__field-container">
-             <div class="input__icon">
-               <i class="ph-bold ph-barbell"></i>
-             </div>
-             <input
-               data-average-calculator="weight-${number}"
-               id="weight-${number}"
-               type="number"
-               name="weight-${number}"
-               required
-               class="input__field">
-           </div>
-         </div>
-     </div>`
+       </div>
 
-      inputGroups.innerHTML += inputGroup
+       <div class="input">
+         <label for="weight-2" class="input__label">Peso ${number}</label>
+         <div class="input__field-container">
+           <div class="input__icon">
+             <i class="ph-bold ph-barbell"></i>
+           </div>
+           <input
+             data-average-calculator="weight-${number}"
+             id="weight-${number}"
+             type="number"
+             name="weight-${number}"
+             required
+             class="input__field">
+         </div>
+       </div>
+   </div>`
+
+    inputGroups.innerHTML += inputGroup
+  }
+
+  renderInputGroups() {
+    for (let number = 1; number <= this.numberOfInputGroups; number++) {
+      this.appendInputGroup(number)
     }
   }
 
@@ -111,7 +119,7 @@ class AverageCalculator {
     let totalWeight = 0
     let hasErrors = false
 
-    for (let number = 1; number <= this.#NUMBER_OF_INPUT_GROUPS; number++) {
+    for (let number = 1; number <= this.numberOfInputGroups; number++) {
       const gradeField = this.form.getField(`grade-${number}`)
       const weightField = this.form.getField(`weight-${number}`)
       const grade = parseInt(gradeField.value)
@@ -134,8 +142,12 @@ class AverageCalculator {
     if (hasErrors) return
     const average = this.calculate(gradesAndWeights, totalWeight)
     this.renderResult(average)
-    this.form.clear()
     this.form.focusField("grade-1")
+  }
+
+  handleAddInputGroupButtonClick() {
+    this.numberOfInputGroups++
+    this.appendInputGroup(this.numberOfInputGroups)
   }
 
   handleRestartButtonClick() {
