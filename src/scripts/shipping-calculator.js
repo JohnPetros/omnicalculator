@@ -139,7 +139,17 @@ class ShippingCalculator {
 
     if (distance <= 0) {
       this.form.showInputError(
-        piecesCountField, 'Distância não pode ser menor ou igual a zero'
+        distanceField, 'Distância não pode ser menor ou igual a zero'
+      )
+      hasErrors = true
+    }
+
+    const fuelPriceField = this.form.getField("fuel-price")
+    const fuelPrice = parseFloat(fuelPriceField.value)
+
+    if (fuelPrice < 0) {
+      this.form.showInputError(
+        fuelPriceField, 'Preço do combustível não pode ser menor que zero'
       )
       hasErrors = true
     }
@@ -151,7 +161,7 @@ class ShippingCalculator {
 
     if (hasErrors) return
 
-    const totalFuel = this.FUEL_PRICE_PER_LITER * distance
+    const totalFuel = fuelPrice * distance
 
     if (!regions.length) return
 
