@@ -1,14 +1,21 @@
 const path = require("path")
 const HtmlWebapackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
   entry: './src/app.js',
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'build')
+    filename: 'app.[hash].js',
+    path: path.resolve(__dirname, 'build'),
+    assetModuleFilename: 'assets/[hash][ext][query]',
+    publicPath: '/'
   },
-  modules: {
+  mode: 'production',
+  devServer: {
+    historyApiFallback: true
+  },
+  module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
@@ -26,7 +33,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.js$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -36,18 +43,19 @@ module.exports = {
         }
       },
       {
-        test: /\.(jp?g|png|gif|svg)$/i,
-        loader: 'file-loader',
-        exclude: /node_modules/,
-        options: {
-          name: '[name].[ext]'
-        }
-      }
+        test: /\.html$/i,
+        use: ['html-loader']
+      },
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles.css'
+      filename: 'styles.[hash].css'
+    }),
+    new HtmlWebapackPlugin({
+      filename: 'index.html',
+      template: './src/index.html'
     }),
     new HtmlWebapackPlugin({
       filename: 'index.html',
