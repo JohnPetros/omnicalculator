@@ -1,0 +1,149 @@
+<main class="calculator">
+  <div class="calculator__controls">
+    <h1 class="calculator__title">
+      Calculadora de Média Escolar
+    </h1>
+
+    <form
+      data-average-calculator="form"
+      class="calculator__form hidden">
+
+      <div data-average-calculator="inputs-groups"
+        class="calculator__inputs-groups">
+      </div>
+
+      <div
+        data-average-calculator="buttons-group"
+        class="calculator__buttons-group">
+        <button
+          data-average-calculator="add-input-group-button"
+          type="button"
+          class="button">
+          <i class="ph-bold ph-plus button__icon"></i>
+          Adicionar
+        </button>
+
+        <button
+          data-average-calculator="calculate-button"
+          type="bmit"
+          class="button">
+          <i class="ph-bold ph-calculator button__icon"></i>
+          Calcular
+        </button>
+
+        <button
+          data-average-calculator="restart-button"
+          type="button"
+          class="button">
+          <i class="ph-bold ph-arrow-counter-clockwise button__icon"></i>
+          Parar
+        </button>
+      </div>
+    </form>
+
+    <div class="calculator__button-container">
+      <button
+        data-average-calculator="start-button"
+        type="button"
+        class="button">
+        <i class="ph-bold ph-play button__icon"></i>
+        Iniciar
+      </button>
+    </div>
+
+  </div>
+  <div class="calculator__result">
+
+    <div
+      data-average-calculator="placeholder"
+      class="calculator__result-placeholder">
+      <img
+        src="../../assets/calculator.svg"
+        width="192"
+        height="192"
+        alt="calculator">
+      <h2
+        class="calculator__result-title">Resultados serão mostrados
+        aqui
+      </h2>
+      <p
+        class="calculator__result-message">
+        Complete o formulário e clique em "calcular" para ver o resultado.
+      </p>
+    </div>
+
+    <div
+      data-average-calculator="display"
+      class="calculator__result-display hidden">
+      <h2 class="calculator__result-title">
+        Resultado
+      </h2>
+
+      <p
+        data-average-calculator="message"
+        class="calculator__result-message">
+      </p>
+
+      <div class="display">
+        <strong
+          data-average-calculator="status"
+          class="display__value">
+        </strong>
+
+        <span class="display__divisor"></span>
+
+        <div>
+          <p
+            class="display__message">
+            Sua média ponderada
+          </p>
+          <strong
+            data-average-calculator="average"
+            class="calculator__result-title"> 1,799.74 KG/M²</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<nav class="navigation">
+  <ul class="navigation__links">
+    <li>
+      <a
+        data-navigation="link"
+        href="bmi-calculator"
+        class="navigation__link">
+        Calculadora de IMC
+      </a>
+    </li>
+    <li>
+      <a
+        data-navigation="link"
+        href="age-group-calculator"
+        class="navigation__link">
+        Calculadora de Faixa Etária
+      </a>
+    </li>
+    <li>
+      <a
+        data-navigation="link"
+        href="shipping-calculator"
+        class="navigation__link">
+        Calculadora de Frete
+      </a>
+    </li>
+    <li>
+      <a
+        data-navigation="link"
+        href="payroll-calculator"
+        class="navigation__link">
+        Calculadora de Folha de Pagamento
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- <script src="../scripts/document.js"></script>
+    <script src="../scripts/form.js"></script>
+    <script src="../scripts/average-calculator.js"></script> -->
