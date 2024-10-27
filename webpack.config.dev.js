@@ -2,6 +2,7 @@ const path = require("path")
 
 const { merge } = require("webpack-merge")
 const webpackCommonConfig = require("./webpack.config")
+const HtmlWebapackPlugin = require("html-webpack-plugin")
 
 module.exports = merge(webpackCommonConfig, {
   mode: 'development',
