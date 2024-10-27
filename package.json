@@ -2,8 +2,10 @@
   "name": "omnicalculator",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://johnpetros.github.io/omnicalculator",
   "main": "index.js",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --config webpack.config.dev.js --open"
   },
