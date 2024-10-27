@@ -6,6 +6,7 @@ import { AgeGroupCalculatorPage, AgeGroupCalculatorView } from "./pages/age-grou
 import { AverageCalculatorPage, AverageCalculatorView } from "./pages/average-calculator/page"
 import { ShippingCalculatorPage, ShippingCalculatorView } from "./pages/shipping-calculator/page"
 import { PayrollCalculatorPage, PayrollCalculatorView } from "./pages/payroll-calculator/page"
+import { NotFoundPage } from "./pages/not-found/page"
 
 const navigation = new Navigation({
   '/': {
@@ -32,6 +33,10 @@ const navigation = new Navigation({
     page: PayrollCalculatorPage,
     view: PayrollCalculatorView,
   },
+  '/not-found': {
+    page: NotFoundPage,
+    view: () => { }
+  }
 })
 
 
