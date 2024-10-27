@@ -2,6 +2,7 @@ const path = require("path")
 
 const { merge } = require("webpack-merge")
 const webpackCommonConfig = require("./webpack.config")
+const HtmlWebapackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
@@ -35,6 +36,10 @@ module.exports = merge(webpackCommonConfig, {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'styles.[contenthash].css'
+    }),
+    new HtmlWebapackPlugin({
+      filename: 'index.html',
+      template: './src/index.html'
     }),
   ]
 })
