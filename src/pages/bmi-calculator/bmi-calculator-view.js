@@ -1,4 +1,7 @@
-class BmiCalculatorView {
+import { Form } from '../../utils/form'
+import { Document } from '../../utils/document'
+
+export class BmiCalculatorView {
   constructor() {
     this.form = new Form("bmi-calculator")
     this.document = new Document("bmi-calculator")
@@ -61,8 +64,7 @@ class BmiCalculatorView {
     const bmi = this.calculate(weight, height)
     this.renderResult(bmi, username)
     this.form.clear()
+    usernameField.value = username
     this.form.focusField("height")
   }
 }
-
-new BmiCalculator()

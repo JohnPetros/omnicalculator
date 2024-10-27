@@ -1,4 +1,5 @@
-class _Form {
+
+export class Form {
   #onSubmit
   #calculator
 
@@ -19,6 +20,11 @@ class _Form {
   clearField(fieldName) {
     const field = this.form.querySelector(`[data-${this.#calculator}='${fieldName}']`)
     if (field) field.value = ""
+  }
+
+  setField(fieldName, value) {
+    const field = this.form.querySelector(`[data-${this.#calculator}='${fieldName}']`)
+    if (field) field.value = value
   }
 
   focusField(fieldName) {
