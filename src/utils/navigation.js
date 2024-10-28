@@ -4,8 +4,8 @@ export class Navigation {
   }
 
   navigate(path) {
-    const route = this.routes[path] ?? this.routes['/not-found']
-
+    const currentPath = path.split('/').at(-1)
+    const route = this.routes[`/${currentPath}`] ?? this.routes['/not-found']
     document.body.innerHTML = route.page
 
     setTimeout(() => {

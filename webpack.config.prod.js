@@ -10,10 +10,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 module.exports = merge(webpackCommonConfig, {
   mode: 'production',
   output: {
-    filename: 'app.[hash].js',
+    filename: 'app.[contenthash].js',
     path: path.resolve(__dirname, 'build'),
-    assetModuleFilename: 'assets/[hash][ext][query]',
-    publicPath: '/'
+    assetModuleFilename: 'assets/[contenthash][ext][query]',
+    publicPath: './'
   },
   module: {
     rules: [
@@ -40,6 +40,10 @@ module.exports = merge(webpackCommonConfig, {
     new HtmlWebapackPlugin({
       filename: 'index.html',
       template: './src/index.html'
+    }),
+    new HtmlWebapackPlugin({
+      filename: '404.html',
+      template: './src/404.html'
     }),
   ]
 })
