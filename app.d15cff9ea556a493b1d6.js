@@ -1094,7 +1094,7 @@ var not_found_code = `<main> <strong class="status-code">404</strong> <h1 class=
 
 
 var navigation = new Navigation({
-  '/omnicalculator': {
+  '/omnicalculator/': {
     page: bmi_calculator,
     view: BmiCalculatorView
   },
