@@ -1094,27 +1094,27 @@ var not_found_code = `<main> <strong class="status-code">404</strong> <h1 class=
 
 
 var navigation = new Navigation({
-  '/': {
+  '/omnicalculator': {
     page: bmi_calculator,
     view: BmiCalculatorView
   },
-  '/bmi-calculator': {
+  '/omnicalculator/bmi-calculator': {
     page: bmi_calculator,
     view: BmiCalculatorView
   },
-  '/average-calculator': {
+  '/omnicalculator/average-calculator': {
     page: average_calculator,
     view: AverageCalculatorView
   },
-  '/age-group-calculator': {
+  '/omnicalculator/age-group-calculator': {
     page: age_group_calculator,
     view: AgeGroupCalculatorView
   },
-  '/shipping-calculator': {
+  '/omnicalculator/shipping-calculator': {
     page: shipping_calculator,
     view: ShippingCalculatorView
   },
-  '/payroll-calculator': {
+  '/omnicalculator/payroll-calculator': {
     page: payroll_calculator,
     view: PayrollCalculatorView
   },
