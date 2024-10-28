@@ -97,7 +97,6 @@ var Navigation = /*#__PURE__*/function () {
     value: function navigate(path) {
       var _this$routes;
       var currentPath = path.split('/').at(-1);
-      console.log(currentPath);
       var route = (_this$routes = this.routes["/".concat(currentPath)]) !== null && _this$routes !== void 0 ? _this$routes : this.routes['/not-found'];
       document.body.innerHTML = route.page;
       setTimeout(function () {
