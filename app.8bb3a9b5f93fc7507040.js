@@ -95,11 +95,10 @@ var Navigation = /*#__PURE__*/function () {
   return _createClass(Navigation, [{
     key: "navigate",
     value: function navigate(path) {
-      var _this$routes$path;
-      console.log({
-        path: path
-      });
-      var route = (_this$routes$path = this.routes[path]) !== null && _this$routes$path !== void 0 ? _this$routes$path : this.routes['/not-found'];
+      var _this$routes;
+      var currentPath = path.split('/').at(-1);
+      console.log(currentPath);
+      var route = (_this$routes = this.routes["/".concat(currentPath)]) !== null && _this$routes !== void 0 ? _this$routes : this.routes['/not-found'];
       document.body.innerHTML = route.page;
       setTimeout(function () {
         new route.view();
@@ -1097,27 +1096,27 @@ var not_found_code = `<main> <strong class="status-code">404</strong> <h1 class=
 
 
 var navigation = new Navigation({
-  '/omnicalculator/': {
+  '/': {
     page: bmi_calculator,
     view: BmiCalculatorView
   },
-  '/omnicalculator/bmi-calculator': {
+  '/bmi-calculator': {
     page: bmi_calculator,
     view: BmiCalculatorView
   },
-  '/omnicalculator/average-calculator': {
+  '/average-calculator': {
     page: average_calculator,
     view: AverageCalculatorView
   },
-  '/omnicalculator/age-group-calculator': {
+  '/age-group-calculator': {
     page: age_group_calculator,
     view: AgeGroupCalculatorView
   },
-  '/omnicalculator/shipping-calculator': {
+  '/shipping-calculator': {
     page: shipping_calculator,
     view: ShippingCalculatorView
   },
-  '/omnicalculator/payroll-calculator': {
+  '/payroll-calculator': {
     page: payroll_calculator,
     view: PayrollCalculatorView
   },
