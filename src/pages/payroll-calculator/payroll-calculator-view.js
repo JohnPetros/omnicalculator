@@ -1,5 +1,6 @@
 import { Form } from '../../utils/form'
 import { Document } from '../../utils/document'
+import { CurrenyFormatter } from '../../utils/currency-formatter'
 
 export class PayrollCalculatorView {
   HOURLY_SALARY = {
