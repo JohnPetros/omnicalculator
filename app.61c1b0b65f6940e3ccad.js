@@ -684,6 +684,35 @@ var average_calculator_code = `<main class="calculator"> <div class="calculator_
 
 
 
+;// CONCATENATED MODULE: ./src/utils/currency-formatter.js
+function currency_formatter_typeof(o) { "@babel/helpers - typeof"; return currency_formatter_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, currency_formatter_typeof(o); }
+function currency_formatter_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function currency_formatter_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, currency_formatter_toPropertyKey(o.key), o); } }
+function currency_formatter_createClass(e, r, t) { return r && currency_formatter_defineProperties(e.prototype, r), t && currency_formatter_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function currency_formatter_toPropertyKey(t) { var i = currency_formatter_toPrimitive(t, "string"); return "symbol" == currency_formatter_typeof(i) ? i : i + ""; }
+function currency_formatter_toPrimitive(t, r) { if ("object" != currency_formatter_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != currency_formatter_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function currency_formatter_classPrivateFieldInitSpec(e, t, a) { currency_formatter_checkPrivateRedeclaration(e, t), t.set(e, a); }
+function currency_formatter_checkPrivateRedeclaration(e, t) { if (t.has(e)) throw new TypeError("Cannot initialize the same private elements twice on an object"); }
+function currency_formatter_classPrivateFieldGet(s, a) { return s.get(currency_formatter_assertClassBrand(s, a)); }
+function currency_formatter_classPrivateFieldSet(s, a, r) { return s.set(currency_formatter_assertClassBrand(s, a), r), r; }
+function currency_formatter_assertClassBrand(e, t, n) { if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n; throw new TypeError("Private element is not present on this object"); }
+var _formatter = /*#__PURE__*/new WeakMap();
+var CurrenyFormatter = /*#__PURE__*/function () {
+  function CurrenyFormatter() {
+    currency_formatter_classCallCheck(this, CurrenyFormatter);
+    currency_formatter_classPrivateFieldInitSpec(this, _formatter, void 0);
+    currency_formatter_classPrivateFieldSet(_formatter, this, new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }));
+  }
+  return currency_formatter_createClass(CurrenyFormatter, [{
+    key: "format",
+    value: function format(amount) {
+      return currency_formatter_classPrivateFieldGet(_formatter, this).format(amount);
+    }
+  }]);
+}();
 ;// CONCATENATED MODULE: ./src/pages/shipping-calculator/shipping-calculator-view.js
 function shipping_calculator_view_typeof(o) { "@babel/helpers - typeof"; return shipping_calculator_view_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, shipping_calculator_view_typeof(o); }
 function shipping_calculator_view_createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = shipping_calculator_view_unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
@@ -695,6 +724,7 @@ function shipping_calculator_view_createClass(e, r, t) { return r && shipping_ca
 function shipping_calculator_view_defineProperty(e, r, t) { return (r = shipping_calculator_view_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function shipping_calculator_view_toPropertyKey(t) { var i = shipping_calculator_view_toPrimitive(t, "string"); return "symbol" == shipping_calculator_view_typeof(i) ? i : i + ""; }
 function shipping_calculator_view_toPrimitive(t, r) { if ("object" != shipping_calculator_view_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != shipping_calculator_view_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 var ShippingCalculatorView = /*#__PURE__*/function () {
@@ -869,6 +899,7 @@ function payroll_calculator_view_createClass(e, r, t) { return r && payroll_calc
 function payroll_calculator_view_defineProperty(e, r, t) { return (r = payroll_calculator_view_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function payroll_calculator_view_toPropertyKey(t) { var i = payroll_calculator_view_toPrimitive(t, "string"); return "symbol" == payroll_calculator_view_typeof(i) ? i : i + ""; }
 function payroll_calculator_view_toPrimitive(t, r) { if ("object" != payroll_calculator_view_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != payroll_calculator_view_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 var PayrollCalculatorView = /*#__PURE__*/function () {
