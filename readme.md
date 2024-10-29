@@ -36,31 +36,31 @@ O Design do projeto é inteiramente inspirado no desafio [Mortgage repayment cal
   <tr>
     <td align="center">
     <span>Calculadora de IMC<br/></span>
-    <img src="documentation/images/home-page.png"  width="900" height="600" alt="Demonstração da página principal" />
+    <img src=".github/images/bmi-calculator.png"  width="900" height="600" alt="Demonstração da página principal" />
     </td>
   </tr>  
   <tr>
     <td align="center">
     <span>Calculadora de média escolar<br/></span>
-    <img src="documentation/images/home-page.png"  width="900" height="600" alt="Demonstração da página principal" />
+    <img src=".github/images/average-calculator.png"  width="900" height="600" alt="Demonstração da página principal" />
     </td>
   </tr>  
   <tr>
     <td align="center">
     <span>Calculadora de faixa etária<br/></span>
-    <img src="documentation/images/home-page.png"  width="900" height="600" alt="Demonstração da página principal" />
+    <img src=".github/images/bmi-calculator.png"  width="900" height="600" alt="Demonstração da página principal" />
     </td>
   </tr>  
   <tr>
     <td align="center">
     <span>Calculadora de frete<br/></span>
-    <img src="documentation/images/home-page.png"  width="900" height="600" alt="Demonstração da página principal" />
+    <img src=".github/images/payroll-calculator.png"  width="900" height="600" alt="Demonstração da página principal" />
     </td>
   </tr>  
    <tr>
     <td align="center">
     <span>Calculadora de folha de pagamento<br/></span>
-    <img src="documentation/images/home-page.png"  width="900" height="600" alt="Demonstração da página principal" />
+    <img src=".github/images/payroll-calculator.png"  width="900" height="600" alt="Demonstração da página principal" />
     </td>
   </tr>  
 </table>
